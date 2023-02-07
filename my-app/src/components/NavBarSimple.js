@@ -6,9 +6,20 @@ class NavBarSimple extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            introduction: "Hello,",
+            message: "Hello, guest!",
             buttonText: "log in",
         };
+    }
+
+    handleClick () {
+        this.setState ({
+            message: this.state.message === "Hello, guest!" ? "Welcome back, user!" : "Hello, guest!",
+            buttonText: this.state.message === "log out" ? "log in" : "log out",
+        },
+         () => {
+            console.log("new state", this.state.message)
+            console.log("new state", this.state.buttonText)
+        })
     }
 
     render() {
@@ -19,9 +30,9 @@ class NavBarSimple extends React.Component {
                 </h1>
                 <div>
                     <span>
-                    {this.state.introduction} {this.props.name}
+                    {this.state.message} 
                     </span>
-                    <button>
+                    <button onClick = {()=> this.handleClick()}>
                     {this.state.buttonText}
                     </button>
                 </div>

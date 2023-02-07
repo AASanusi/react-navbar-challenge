@@ -5,7 +5,7 @@ import NavBarSimple from './components/NavBarSimple';
 function App() {
   return (
     <div className="App">
-      <NavBarSimple name="guest!" />
+      <NavBarSimple/>
     </div>
   );
 }
